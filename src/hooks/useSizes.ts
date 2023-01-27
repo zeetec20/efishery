@@ -13,7 +13,7 @@ const useSizes = () => {
     }).map(data => {
         data.size = parseInt(data.size)
         return data
-    })
+    }).reduce((prevData: SizeType[], data: SizeType) => prevData.find(({size}) => size === data.size) ? prevData : [...prevData, data], [])
     return {data: newData, ...res}
 }
 

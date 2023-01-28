@@ -1,0 +1,72 @@
+@import '../../spacing.scss';
+@import '../../radius.scss';
+@import '../../color.scss';
+@import '../../fontSize.scss';
+
+.content {
+    margin-inline: $margin-xl-3;
+    width: 100%;
+    min-height: calc(100vh - ($margin-xl-3 + $margin-xl-3));
+    height: min-content;
+    // background-color: white;
+    margin-top: $margin-xl-3;
+    border-radius: $round-xl-2;
+
+    .header {
+        & > .row {
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .text-greting {
+            font-size: $font-size-lg;
+            line-height: $line-height-lg;
+            font-weight: 600;
+            color: $color-light-black;
+        }
+
+        .text-name {
+            color: $color-black;
+            font-size: $font-size-xl-2;
+            line-height: $line-height-xl-2;
+            font-weight: 600;
+            letter-spacing: .1rem;
+        }
+
+        .notification {
+            background-color: white;
+            border-radius: 100%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+
+            .icon {
+                width: 30px;
+                height: 30px;
+                color: $color-light-black;
+                transform: rotate(-20deg);
+            }
+
+            .count {
+                position: absolute;
+                right: 8px;
+                top: 5px;
+                background-color: $color-orange;
+                color: white;
+                border-radius: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: $font-size-xs;
+                line-height: $line-height-xs;
+                width: 16px;
+                height: 16px;
+                font-weight: 500;
+                border: solid 2.5px white;
+            }
+        }
+    }
+}

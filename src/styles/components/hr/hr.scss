@@ -1,0 +1,10 @@
+@import '../../color.scss';
+@import '../../spacing.scss';
+
+.hr {
+    background-color: $color-gray;
+    width: 100%;
+    height: 1px;
+    margin-top: $margin-md;
+    margin-bottom: $margin-md;
+}

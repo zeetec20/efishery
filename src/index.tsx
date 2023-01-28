@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom/client';
 import React from 'react';
-import Routes from './routes';
+import Routes from 'src/routes';
 import Layout from './layout';
 
 const root = ReactDOM.createRoot(

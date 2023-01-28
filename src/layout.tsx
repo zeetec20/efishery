@@ -1,11 +1,17 @@
 import { PropsWithChildren } from "react"
-import './styles/global.scss'
+import 'src/styles/global.scss'
+import Sidebar from "src/components/sidebar"
+import Content from "src/components/content"
 
 const Layout = ({ children }: PropsWithChildren) => {
     return (
-        <>
-            {children}
-        </>
+        <div className="main">
+            <Sidebar />
+            <Content>
+                {children}
+            </Content>
+            <div className="main-background"></div>
+        </div>
     )
 }
 

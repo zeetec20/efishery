@@ -1,0 +1,36 @@
+@import '../../spacing.scss';
+@import '../../color.scss';
+@import '../../fontSize.scss';
+@import '../../radius.scss';
+
+.sidebar {
+    .button {
+        column-gap: $margin-sm;
+        width: calc(100% - (20px + 20px));
+        color: $color-dark-gray;
+        font-size: $font-size-sm;
+        margin-inline: 20px;
+        justify-content: start;
+        padding-top: $margin-md;
+        padding-bottom: $margin-md;
+        box-shadow: none;
+        font-weight: 500;
+        border-radius: $round-lg;
+    
+        &:not(:nth-child(1)) {
+            margin-top: 15px;
+        }
+
+        &.active {
+            background-color: $color-light-gray;
+            color: $color-blue;
+            font-weight: 600;
+        }
+    
+        .icon {
+            width: 23px; 
+            height: 23px;
+            margin-left: $margin-md;
+        }
+    }
+}

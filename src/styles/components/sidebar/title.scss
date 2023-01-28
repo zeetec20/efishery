@@ -1,0 +1,11 @@
+@import '../../color.scss';
+@import '../../spacing.scss';
+
+.sidebar {
+    .title {
+        margin-top: 0;
+        margin-inline: 30px;
+        margin-bottom: $margin-md;
+        color: $color-light-black;
+    }
+}

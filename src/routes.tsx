@@ -1,17 +1,11 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { Routes as RouteWrap, Route } from 'react-router-dom'
 import Home from 'src/pages/home'
 
-const Routes = () => {
-	const router = createBrowserRouter([
-		{
-			path: '/',
-			element: <Home />
-		}
-	])
+const Routes = () => (
+	<RouteWrap>
+		<Route path='/' element={<Home />} />
+		<Route path='/fish-prices' element={<Home />} />
+	</RouteWrap>
+)
 
-	return (
-		<RouterProvider router={router} />
-	)
-}
-
-export default Routes;
+export default Routes

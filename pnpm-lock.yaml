@@ -10,11 +10,13 @@ specifiers:
   '@types/react-dom': ^18.0.10
   localforage: ^1.10.0
   match-sorter: ^6.3.1
+  moment: ^2.29.4
   react: ^18.2.0
   react-dom: ^18.2.0
   react-icons: ^4.7.1
   react-router-dom: ^6.8.0
   react-scripts: 5.0.1
+  react-use-draggable-scroll: ^0.4.7
   sass: ^1.57.1
   sort-by: ^1.2.0
   swr: ^2.0.2
@@ -31,11 +33,13 @@ dependencies:
   '@types/react-dom': 18.0.10
   localforage: 1.10.0
   match-sorter: 6.3.1
+  moment: 2.29.4
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   react-icons: 4.7.1_react@18.2.0
   react-router-dom: 6.8.0_biqbaboplfbrettd7655fr4n2y
   react-scripts: 5.0.1_tennmlpioiftpptsysjzsdxowu
+  react-use-draggable-scroll: 0.4.7_react@18.2.0
   sass: 1.57.1
   sort-by: 1.2.0
   swr: 2.0.2_react@18.2.0
@@ -6849,6 +6853,10 @@ packages:
       minimist: 1.2.7
     dev: false
 
+  /moment/2.29.4:
+    resolution: {integrity: sha512-5LC9SOxjSc2HF6vO2CyuTDNivEdoz2IvyJJGj6X8DJ0eFyfszE0QiEd+iXmBvUP3WHxSjFH/vIsA0EN00cgr8w==}
+    dev: false
+
   /ms/2.0.0:
     resolution: {integrity: sha512-Tpp60P6IUJDTuOq/5Z8cdskzJujfwqfOTkrwIwj7IRISpnkJnT6SyJ4PCPnGMoFjC9ddhal5KVIYtAt97ix05A==}
     dev: false
@@ -8383,6 +8391,15 @@ packages:
       - webpack-cli
       - webpack-hot-middleware
       - webpack-plugin-serve
+    dev: false
+
+  /react-use-draggable-scroll/0.4.7_react@18.2.0:
+    resolution: {integrity: sha512-6gCxGPO9WV5dIsBaDrgUKBaac8CY07PkygcArfajijYSNDwAq0girDRjaBuF1+lRqQryoLFQfpVaV2u/Yh6CrQ==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      react: '>=16'
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /react/18.2.0:

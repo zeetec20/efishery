@@ -5,14 +5,15 @@
 
 .content {
     margin-inline: $margin-xl-3;
-    width: 100%;
+    flex-grow: 1;
     min-height: calc(100vh - ($margin-xl-3 + $margin-xl-3));
     height: min-content;
-    // background-color: white;
     margin-top: $margin-xl-3;
-    border-radius: $round-xl-2;
+    overflow-x: hidden;
 
     .header {
+        margin-bottom: $margin-xl-3;
+
         & > .row {
             justify-content: space-between;
             align-items: center;

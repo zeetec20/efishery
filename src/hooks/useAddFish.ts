@@ -1,5 +1,5 @@
 import useSWRMutation from 'swr/mutation'
-import { fetcher } from '~/helper'
+import { fetcher } from 'src/helper'
 import { FishType } from './useFishs'
 
 const useAddFish = () => {

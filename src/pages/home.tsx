@@ -1,10 +1,9 @@
 import { useRef } from 'react'
-import { CardCountry } from 'src/components/home'
+import { CardCountry, TableRankFish } from 'src/components/home'
 import useFishs from 'src/hooks/useFishs'
 import { getGroupFishOfCity, getRankFish } from 'src/services/fish'
 import 'src/styles/pages/home/home.scss'
 import {useDraggable} from 'react-use-draggable-scroll'
-import TableRankFish from 'src/components/home/tableRankFish'
 
 const Home = () => {
     const {data} = useFishs()

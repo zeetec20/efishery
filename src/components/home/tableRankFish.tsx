@@ -1,10 +1,12 @@
-import { useReactTable, flexRender, getCoreRowModel, getSortedRowModel, createColumnHelper, SortingState, ColumnDef } from '@tanstack/react-table'
+import { useReactTable, flexRender, getCoreRowModel, getSortedRowModel, SortingState, ColumnDef, FilterFn, getFilteredRowModel, getPaginationRowModel, getFacetedRowModel, getFacetedUniqueValues, getFacetedMinMaxValues } from '@tanstack/react-table'
 import { useEffect, useMemo, useState } from 'react'
 import { RankFish } from 'src/services/fish'
-import { IoMdArrowDropdown, IoMdArrowDropup, IoMdSearch } from 'react-icons/io'
+import { IoMdArrowDropdown, IoMdArrowDropup } from 'react-icons/io'
 import { RiSearch2Line } from 'react-icons/ri'
 import 'src/styles/pages/home/tableRankFish.scss'
 import { Overwrite } from 'src/helper'
+
+import { RankingInfo, rankItem, compareItems } from '@tanstack/match-sorter-utils'
 
 interface RankFishProps {
     rankFish?: RankFish[]
@@ -17,6 +19,7 @@ type RankFishTable = Overwrite<RankFish, {
     average_price: string
 }>
 
+
 const SortTable = ({ down, up }: { down?: boolean, up?: boolean }) => (
     <div className='column justify-content-center align-items-center'>
         <IoMdArrowDropup className={`icon-sort ${up ? 'active' : ''}`} />
@@ -26,6 +29,7 @@ const SortTable = ({ down, up }: { down?: boolean, up?: boolean }) => (
 
 const TableRankFish = ({ rankFish = [] }: RankFishProps) => {
     const [data, setData] = useState<RankFishTable[]>([])
+    const [globalFilter, setGlobalFilter] = useState<string>('')
     const [sortRankFish, setSortRankFish] = useState<SortingState>([])
     const columns = useMemo<ColumnDef<RankFishTable>[]>(() => [
         {
@@ -63,6 +67,18 @@ const TableRankFish = ({ rankFish = [] }: RankFishProps) => {
             cell: info => info.getValue()
         },
     ], [])
+    const fuzzyFilter: FilterFn<any> = (row, columnId, value, addMeta) => {
+        // Rank the item
+        const itemRank = rankItem(row.getValue(columnId), value)
+
+        // Store the itemRank info
+        addMeta({
+            itemRank,
+        })
+
+        // Return if the item should be filtered in/out
+        return itemRank.passed
+    }
 
     useEffect(() => {
         setData(rankFish.map((data, index) => ({
@@ -77,12 +93,20 @@ const TableRankFish = ({ rankFish = [] }: RankFishProps) => {
     const table = useReactTable<RankFishTable>({
         data,
         columns,
+        filterFns: {
+            fuzzyFilter
+        },
         state: {
-            sorting: sortRankFish
+            sorting: sortRankFish,
+            globalFilter
         },
         onSortingChange: setSortRankFish,
         getCoreRowModel: getCoreRowModel(),
-        getSortedRowModel: getSortedRowModel()
+        getSortedRowModel: getSortedRowModel(),
+        getFilteredRowModel: getFilteredRowModel(),
+        onGlobalFilterChange: setGlobalFilter,
+        globalFilterFn: fuzzyFilter,
+
     })
 
     return (
@@ -94,7 +118,7 @@ const TableRankFish = ({ rankFish = [] }: RankFishProps) => {
                 </div>
                 <div className="search row">
                     <RiSearch2Line className='icon' />
-                    <input type="text" placeholder='Cari ikan...' />
+                    <input type="text" placeholder='Cari ikan...' value={globalFilter} onChange={e => setGlobalFilter(e.target.value)} />
                 </div>
             </div>
             <div className="wrap-table-rank-fish-overflow">

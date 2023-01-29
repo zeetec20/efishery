@@ -10,13 +10,6 @@
     margin-bottom: $margin-xl-3;
     box-shadow: $shadow-lg;
 
-    .wrap-table-rank-fish-overflow{
-        overflow: auto;
-        margin-inline: $margin-xl;
-        margin-top: $margin-xl;
-        margin-bottom: $margin-xl-2;
-    }
-
     .header-table-rank-fish {
         margin-inline: $margin-xl;
         margin-top: $margin-xl-2;
@@ -64,12 +57,20 @@
         }
     }
 
+    .wrap-table-rank-fish-overflow{
+        overflow: auto;
+        margin-inline: $margin-xl;
+        margin-top: $margin-xl;
+        margin-bottom: $margin-xl-2;
+        border-radius: $round-xl;
+        border: solid 1px $color-gray;
+        min-height: 400px;
+    }
+
     .table-rank-fish {
         width: 100%;
         border-spacing: 0;
         border-collapse: separate;
-        border: solid 1px $color-gray;
-        border-radius: $round-xl;
 
         thead th, tfoot th {
             text-align: start;
@@ -147,6 +148,10 @@
                         align-items: center;
                     }
                 }
+
+                // &:first-child td {
+                //     border-top: solid 1px $color-gray;
+                // }
 
                 &:last-child td {
                     border-bottom: none;

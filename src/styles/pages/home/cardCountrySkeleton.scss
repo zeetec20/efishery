@@ -1,0 +1,54 @@
+@import '../../radius.scss';
+@import '../../spacing.scss';
+
+.card-country-skeleton {
+    min-width: 300px;
+    border-radius: $round-xl-2;
+    height: 180px;
+    background-color: white;
+    margin-bottom: $margin-xl-3;
+    padding: $margin-xl;
+    padding-top: $margin-xl-2;
+    justify-content: space-between;
+        
+    &:not(:first-child) {
+        margin-left: $margin-xl-3;
+    }
+
+    .skeleton-1 {
+        height: 30px;
+        width: 180px;
+        border-radius: $round-sm;
+    }
+
+    .row:has(> .skeleton-2) {
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .skeleton-2 {
+        height: 80px;
+        width: 100px;
+        border-radius: $round-sm;
+    }
+
+    .skeleton-3, .skeleton-4, .skeleton-5 {
+        height: 20px;
+        width: 80px;
+        border-radius: $round-sm;
+
+        &:not(:last-child) {
+            margin-bottom: $margin-xs;
+        }
+    }
+
+    .row:has(> .skeleton-6) {
+        justify-content: space-between;
+    }
+
+    .skeleton-6, .skeleton-7 {
+        height: 35px;
+        width: 80px;
+        border-radius: $round-sm;
+    }
+}

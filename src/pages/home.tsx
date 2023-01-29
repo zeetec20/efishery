@@ -1,28 +1,30 @@
 import { useRef } from 'react'
-import { CardCountry, TableRankFish } from 'src/components/home'
+import { CardCountry, CardCountrySkeleton, TableRankFish } from 'src/components/home'
 import useFishs from 'src/hooks/useFishs'
 import { getGroupFishOfCity, getRankFish } from 'src/services/fish'
 import 'src/styles/pages/home/home.scss'
-import {useDraggable} from 'react-use-draggable-scroll'
+import { useDraggable } from 'react-use-draggable-scroll'
 
 const Home = () => {
-    const {data} = useFishs()
+    const { data } = useFishs()
     const ref = useRef<any>()
-    const {events} = useDraggable(ref)
+    const { events } = useDraggable(ref)
     const groupOfCity = getGroupFishOfCity(data)
     const rankFish = getRankFish(data)
 
-    console.log('refresh home')
-    const ListCardCity = () => (
+    const ListCardCountry = () => (
         <>
-            {groupOfCity?.map(data => <CardCountry fish={data} key={data.uuid} />) ?? []}
+            {
+                groupOfCity?.map(data => <CardCountry fish={data} key={data.uuid} />) ??
+                [<CardCountrySkeleton />, <CardCountrySkeleton />, <CardCountrySkeleton />, <CardCountrySkeleton />]
+            }
         </>
     )
 
     return (
         <div className='home'>
             <div className="wrap-card-city" {...events} ref={ref}>
-                <ListCardCity />
+                <ListCardCountry />
             </div>
             <TableRankFish rankFish={rankFish} />
         </div>

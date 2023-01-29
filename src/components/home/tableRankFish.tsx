@@ -1,15 +1,15 @@
-import { useReactTable, flexRender, getCoreRowModel, getSortedRowModel, SortingState, ColumnDef, FilterFn, getFilteredRowModel, getPaginationRowModel, getFacetedRowModel, getFacetedUniqueValues, getFacetedMinMaxValues } from '@tanstack/react-table'
+import { useReactTable, flexRender, getCoreRowModel, getSortedRowModel, SortingState, ColumnDef, FilterFn, getFilteredRowModel } from '@tanstack/react-table'
 import { useEffect, useMemo, useState } from 'react'
 import { RankFish } from 'src/services/fish'
 import { IoMdArrowDropdown, IoMdArrowDropup } from 'react-icons/io'
 import { RiSearch2Line } from 'react-icons/ri'
 import 'src/styles/pages/home/tableRankFish.scss'
 import { Overwrite } from 'src/helper'
-
-import { RankingInfo, rankItem, compareItems } from '@tanstack/match-sorter-utils'
+import { rankItem } from '@tanstack/match-sorter-utils'
+import RowTableRankFishSkeleton from './rowTableRankFishSkeleton'
 
 interface RankFishProps {
-    rankFish?: RankFish[]
+    rankFish: RankFish[]
 }
 
 type RankFishTable = Overwrite<RankFish, {
@@ -27,7 +27,7 @@ const SortTable = ({ down, up }: { down?: boolean, up?: boolean }) => (
     </div>
 )
 
-const TableRankFish = ({ rankFish = [] }: RankFishProps) => {
+const TableRankFish = ({ rankFish }: RankFishProps) => {
     const [data, setData] = useState<RankFishTable[]>([])
     const [globalFilter, setGlobalFilter] = useState<string>('')
     const [sortRankFish, setSortRankFish] = useState<SortingState>([])
@@ -68,15 +68,12 @@ const TableRankFish = ({ rankFish = [] }: RankFishProps) => {
         },
     ], [])
     const fuzzyFilter: FilterFn<any> = (row, columnId, value, addMeta) => {
-        // Rank the item
         const itemRank = rankItem(row.getValue(columnId), value)
 
-        // Store the itemRank info
         addMeta({
             itemRank,
         })
 
-        // Return if the item should be filtered in/out
         return itemRank.passed
     }
 
@@ -155,6 +152,16 @@ const TableRankFish = ({ rankFish = [] }: RankFishProps) => {
                                 ))}
                             </tr>
                         ))}
+                        {
+                            !rankFish.length && (
+                                <>
+                                    <RowTableRankFishSkeleton />
+                                    <RowTableRankFishSkeleton />
+                                    <RowTableRankFishSkeleton />
+                                    <RowTableRankFishSkeleton />
+                                </>
+                            )
+                        }
                     </tbody>
                 </table>
             </div>

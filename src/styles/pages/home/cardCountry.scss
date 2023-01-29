@@ -1,0 +1,128 @@
+@import '../../radius.scss';
+@import '../../spacing.scss';
+@import '../../color.scss';
+@import '../../fontSize.scss';
+@import '../../shadow.scss';
+
+.card-country {
+    background-color: white;
+    border-radius: $round-xl-2;
+    min-width: 350px;
+    width: 350px;
+    margin-bottom: $margin-xl-3;
+    box-shadow: $shadow-lg;
+    justify-content: space-between;
+    
+    &:not(:first-child) {
+        margin-left: $margin-xl-3;
+    }
+    
+    & > .row {
+        margin-inline: $margin-xl;
+    }
+
+    .title {
+        color: $color-light-black;
+        font-size: $font-size-xl;
+        line-height: $font-size-xl;
+        margin-top: $margin-xl;
+        margin-bottom: $margin-xl;
+        margin-inline: $margin-xl;
+    }
+
+    .price {
+        color: $color-light-black;
+        font-size: $font-size-xl-3;
+        line-height: $font-size-xl-3;
+    }
+
+    .percentage {
+        color: $color-light-black;
+        font-size: $font-size-md;
+        line-height: $font-size-md;
+    }
+
+    .icon-percentage {
+        margin-right: $margin-sm;
+    }
+
+    .down {
+        .percentage, .icon-percentage {
+            color: $color-orange;
+        }
+    }
+
+    .stable {
+        .percentage, .icon-percentage {
+            color: $color-light-yellow;
+        }
+    }
+
+    .up {
+        .percentage, .icon-percentage {
+            color: $color-light-blue;
+        }
+    }
+
+    .footer {
+        justify-content: space-between;
+        margin-top: $margin-xl;
+        margin-bottom: $margin-xl;
+    
+        .current-date {
+            font-size: $font-size-xs;
+            line-height: $line-height-xs;
+            color: $color-light-black;
+
+            span {
+                font-weight: 500;
+                font-size: $font-size-xs;
+                line-height: $line-height-xs;
+                color: $color-dark-gray;
+                width: 100%;
+                text-align: end;
+                display: inline-block;
+            }
+        }
+    }
+
+    .row:has(.wrap-fish) {
+        justify-content: space-between;
+    }
+
+    .wrap-fish {
+        .fish {
+            &:not(:first-child) {
+                margin-top: $margin-sm;
+            }
+
+            &:first-child .rank {
+                width: 25px;
+                height: 25px;
+                margin-left: -1.5px;
+                background-color: $color-yellow;
+            }
+
+            .rank {
+                width: 22px;
+                height: 22px;
+                border-radius: 100%;
+                background-color: $color-light-blue;
+                color: white;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: $font-size-xs;
+                line-height: $line-height-xs;
+                font-weight: 600;
+                margin-right: $margin-xs;
+            }
+
+            h6 {
+                color: $color-light-black;
+                font-size: $font-size-sm;
+                line-height: $font-size-sm;
+            }
+        }
+    }
+}

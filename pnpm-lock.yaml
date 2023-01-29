@@ -1,6 +1,8 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@tanstack/match-sorter-utils': ^8.7.6
+  '@tanstack/react-table': ^8.7.8
   '@testing-library/jest-dom': ^5.16.5
   '@testing-library/react': ^13.4.0
   '@testing-library/user-event': ^13.5.0
@@ -10,11 +12,13 @@ specifiers:
   '@types/react-dom': ^18.0.10
   localforage: ^1.10.0
   match-sorter: ^6.3.1
+  moment: ^2.29.4
   react: ^18.2.0
   react-dom: ^18.2.0
   react-icons: ^4.7.1
   react-router-dom: ^6.8.0
   react-scripts: 5.0.1
+  react-use-draggable-scroll: ^0.4.7
   sass: ^1.57.1
   sort-by: ^1.2.0
   swr: ^2.0.2
@@ -22,6 +26,8 @@ specifiers:
   web-vitals: ^2.1.4
 
 dependencies:
+  '@tanstack/match-sorter-utils': 8.7.6
+  '@tanstack/react-table': 8.7.8_biqbaboplfbrettd7655fr4n2y
   '@testing-library/jest-dom': 5.16.5
   '@testing-library/react': 13.4.0_biqbaboplfbrettd7655fr4n2y
   '@testing-library/user-event': 13.5.0
@@ -31,11 +37,13 @@ dependencies:
   '@types/react-dom': 18.0.10
   localforage: 1.10.0
   match-sorter: 6.3.1
+  moment: 2.29.4
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   react-icons: 4.7.1_react@18.2.0
   react-router-dom: 6.8.0_biqbaboplfbrettd7655fr4n2y
   react-scripts: 5.0.1_tennmlpioiftpptsysjzsdxowu
+  react-use-draggable-scroll: 0.4.7_react@18.2.0
   sass: 1.57.1
   sort-by: 1.2.0
   swr: 2.0.2_react@18.2.0
@@ -2182,6 +2190,30 @@ packages:
       loader-utils: 2.0.4
     transitivePeerDependencies:
       - supports-color
+    dev: false
+
+  /@tanstack/match-sorter-utils/8.7.6:
+    resolution: {integrity: sha512-2AMpRiA6QivHOUiBpQAVxjiHAA68Ei23ZUMNaRJrN6omWiSFLoYrxGcT6BXtuzp0Jw4h6HZCmGGIM/gbwebO2A==}
+    engines: {node: '>=12'}
+    dependencies:
+      remove-accents: 0.4.2
+    dev: false
+
+  /@tanstack/react-table/8.7.8_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-XNfNuY9qJEk5urJWGYPWNj4POtBTuYunQNfmUla/ZUobVSS+ZIWt6wnL6kI12QNpPrf4uSVAYelUVl245nnQjQ==}
+    engines: {node: '>=12'}
+    peerDependencies:
+      react: '>=16'
+      react-dom: '>=16'
+    dependencies:
+      '@tanstack/table-core': 8.7.8
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
+
+  /@tanstack/table-core/8.7.8:
+    resolution: {integrity: sha512-OvKx7v0qJTyPkMhqsWzVPZnARiqdGvDvEg8tZ/GSQs7t0Vb2sdtkGg7cdzUZ67sIg9o5/gSwvvT84ouSaP8euA==}
+    engines: {node: '>=12'}
     dev: false
 
   /@testing-library/dom/8.20.0:
@@ -6849,6 +6881,10 @@ packages:
       minimist: 1.2.7
     dev: false
 
+  /moment/2.29.4:
+    resolution: {integrity: sha512-5LC9SOxjSc2HF6vO2CyuTDNivEdoz2IvyJJGj6X8DJ0eFyfszE0QiEd+iXmBvUP3WHxSjFH/vIsA0EN00cgr8w==}
+    dev: false
+
   /ms/2.0.0:
     resolution: {integrity: sha512-Tpp60P6IUJDTuOq/5Z8cdskzJujfwqfOTkrwIwj7IRISpnkJnT6SyJ4PCPnGMoFjC9ddhal5KVIYtAt97ix05A==}
     dev: false
@@ -8383,6 +8419,15 @@ packages:
       - webpack-cli
       - webpack-hot-middleware
       - webpack-plugin-serve
+    dev: false
+
+  /react-use-draggable-scroll/0.4.7_react@18.2.0:
+    resolution: {integrity: sha512-6gCxGPO9WV5dIsBaDrgUKBaac8CY07PkygcArfajijYSNDwAq0girDRjaBuF1+lRqQryoLFQfpVaV2u/Yh6CrQ==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      react: '>=16'
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /react/18.2.0:

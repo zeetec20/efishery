@@ -1,0 +1,15 @@
+@import '../../radius.scss';
+
+.row-table-rank-fish-skeleton {
+    .skeleton-2, .skeleton-3, .skeleton-4, .skeleton-5, .skeleton-6 {
+        height: 20px;
+        width: 70px;
+        border-radius: $round-sm;
+    }
+
+    .skeleton-1 {
+        width: 30px;
+        height: 30px;
+        border-radius: $round-sm;
+    }
+}

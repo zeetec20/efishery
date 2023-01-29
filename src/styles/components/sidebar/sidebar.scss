@@ -11,12 +11,14 @@
     border-radius: $round-xl-2;
     box-shadow: $shadow-lg;
     background-color: white;
-    width: 400px;
+    min-width: 300px;
+    width: 300px;
     display: flex;
     flex-direction: column;
     min-height: calc(100vh - ($margin-xl-3 + $margin-xl-3));
     height: min-content;
     justify-content: space-between;
+    position: fixed;
 
     .logo {
         width: 150px;

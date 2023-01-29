@@ -26,6 +26,7 @@ const useFishs = () => {
         data.timestamp = parseInt(data.timestamp)
         return data
     })
+    console.log(newData)
 
     return { data: newData, ...res }
 }

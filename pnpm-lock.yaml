@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@tanstack/react-table': ^8.7.8
   '@testing-library/jest-dom': ^5.16.5
   '@testing-library/react': ^13.4.0
   '@testing-library/user-event': ^13.5.0
@@ -24,6 +25,7 @@ specifiers:
   web-vitals: ^2.1.4
 
 dependencies:
+  '@tanstack/react-table': 8.7.8_biqbaboplfbrettd7655fr4n2y
   '@testing-library/jest-dom': 5.16.5
   '@testing-library/react': 13.4.0_biqbaboplfbrettd7655fr4n2y
   '@testing-library/user-event': 13.5.0
@@ -2186,6 +2188,23 @@ packages:
       loader-utils: 2.0.4
     transitivePeerDependencies:
       - supports-color
+    dev: false
+
+  /@tanstack/react-table/8.7.8_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-XNfNuY9qJEk5urJWGYPWNj4POtBTuYunQNfmUla/ZUobVSS+ZIWt6wnL6kI12QNpPrf4uSVAYelUVl245nnQjQ==}
+    engines: {node: '>=12'}
+    peerDependencies:
+      react: '>=16'
+      react-dom: '>=16'
+    dependencies:
+      '@tanstack/table-core': 8.7.8
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
+
+  /@tanstack/table-core/8.7.8:
+    resolution: {integrity: sha512-OvKx7v0qJTyPkMhqsWzVPZnARiqdGvDvEg8tZ/GSQs7t0Vb2sdtkGg7cdzUZ67sIg9o5/gSwvvT84ouSaP8euA==}
+    engines: {node: '>=12'}
     dev: false
 
   /@testing-library/dom/8.20.0:

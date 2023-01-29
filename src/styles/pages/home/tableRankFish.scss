@@ -1,0 +1,157 @@
+@import '../../radius.scss';
+@import '../../spacing.scss';
+@import '../../color.scss';
+@import '../../fontSize.scss';
+@import '../../shadow.scss';
+
+.wrap-table-rank-fish {
+    background-color: white;
+    border-radius: $round-xl-2;
+    margin-bottom: $margin-xl-3;
+    box-shadow: $shadow-lg;
+
+    .wrap-table-rank-fish-overflow{
+        overflow: auto;
+        margin-inline: $margin-xl;
+        margin-top: $margin-xl;
+        margin-bottom: $margin-xl-2;
+    }
+
+    .header-table-rank-fish {
+        margin-inline: $margin-xl;
+        margin-top: $margin-xl-2;
+        justify-content: space-between;
+        align-items: center;
+
+        h1 {
+            font-size: $font-size-lg-2;
+            line-height: $line-height-lg-2;
+            color: $color-black;
+            font-weight: 700;
+        }
+        p {
+            font-size: $font-size-md;
+            line-height: $line-height-md;
+            color: $color-light-black;
+        }
+
+        .search {
+            border: solid 1px $color-gray;
+            border-radius: $round-lg;
+            padding: $margin-sm;
+            padding-inline: $margin-md;
+            width: 220px;
+
+            .icon {
+                width: 25px;
+                height: 25px;
+                margin-right: $margin-sm;
+                color: $color-dark-gray;
+            }
+
+            input {
+                border: none;
+                outline: none;
+                border-radius: $round-lg;
+                font-size: $font-size-sm;
+                line-height: $line-height-sm;
+                color: $color-black;
+            
+                &::placeholder {
+                    color: $color-dark-gray;
+                }
+            }
+        }
+    }
+
+    .table-rank-fish {
+        width: 100%;
+        border-spacing: 0;
+        border-collapse: separate;
+        border: solid 1px $color-gray;
+        border-radius: $round-xl;
+
+        thead th, tfoot th {
+            text-align: start;
+        }
+
+        thead .wrap-th {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: $font-size-md;
+            line-height: $line-height-md;
+            color: $color-light-black;
+            cursor: pointer;
+
+            .icon-sort {
+                width: 15px;
+                height: 15px;
+            
+                &.active {
+                    color: $color-light-blue;
+                }
+            }
+        }
+
+        thead th {
+            background-color: $color-light-gray;
+            padding-top: $margin-md;
+            padding-bottom: $margin-md;
+            padding-inline: $margin-sm;
+            border-bottom: solid 1px $color-gray;
+
+            &:first-child {
+                padding-left: $margin-xl;
+                border-top-left-radius: $round-xl;
+            }
+
+            &:last-child {
+                padding-right: $margin-xl;
+                border-top-right-radius: $round-xl;
+            }
+        }
+
+        tbody {
+            tr {
+                td {
+                    padding-top: $margin-xl;
+                    padding-bottom: $margin-xl;
+                    padding-inline: $margin-sm;
+                    border-bottom: solid 1px $color-gray;
+                    font-size: $font-size-sm;
+                    line-height: $line-height-sm;
+                    color: $color-black;
+                    
+                    &:first-child {
+                        padding-left: $margin-xl;
+                    }
+        
+                    &:last-child {
+                        padding-right: $margin-xl;
+                    }
+                }
+                
+                .index {
+                    color: $color-light-black;
+                    font-weight: 700;
+                    padding-right: $margin-xl;
+
+                    div {
+                        width: 25px;
+                        height: 25px;
+                        background-color: $color-light-yellow;
+                        border-radius: 100%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+                }
+
+                &:last-child td {
+                    border-bottom: none;
+                }
+            }
+        }
+    }
+}

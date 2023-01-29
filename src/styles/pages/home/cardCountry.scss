@@ -9,12 +9,12 @@
     border-radius: $round-xl-2;
     min-width: 350px;
     width: 350px;
-    margin-bottom: $margin-xl;
+    margin-bottom: $margin-xl-3;
     box-shadow: $shadow-lg;
     justify-content: space-between;
     
     &:not(:first-child) {
-        margin-left: $margin-xl;
+        margin-left: $margin-xl-3;
     }
     
     & > .row {

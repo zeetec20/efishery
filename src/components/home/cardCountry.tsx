@@ -1,8 +1,7 @@
 import { GroupFishOfCity } from 'src/services/fish'
-import 'src/styles/pages/home/card-country.scss'
+import 'src/styles/pages/home/cardCountry.scss'
 import { BsArrowDownRightCircleFill, BsArrowUpRightCircleFill, BsArrowRightCircleFill } from 'react-icons/bs'
 import { uppercaseFirstWord } from 'src/helper'
-import moment from 'moment'
 
 interface CardCountryProps {
     fish: GroupFishOfCity
@@ -34,7 +33,7 @@ const CardCountry = ({ fish }: CardCountryProps) => {
         return (
             <>
                 {topFishs.map((data, index) => (
-                    <div className='fish row align-items-center'>
+                    <div className='fish row align-items-center' key={index}>
                         <div className="rank">{index + 1}</div>
                         <h6>{uppercaseFirstWord(data.komoditas.toLowerCase())}</h6>
                     </div>
@@ -66,7 +65,7 @@ const CardCountry = ({ fish }: CardCountryProps) => {
                 <h6 className='current-date'>
                     <span>Data Terakhir</span>
                     <br />
-                    {moment(fish.timestamp[fish.timestamp.length - 1]).format('MMMM DD YYYY hh:mm')}
+                    {fish.timestamp[fish.timestamp.length - 1]}
                 </h6>
             </div>
         </div>

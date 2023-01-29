@@ -18,6 +18,7 @@
     min-height: calc(100vh - ($margin-xl-3 + $margin-xl-3));
     height: min-content;
     justify-content: space-between;
+    position: fixed;
 
     .logo {
         width: 150px;

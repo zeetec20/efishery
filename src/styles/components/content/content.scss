@@ -10,6 +10,7 @@
     height: min-content;
     margin-top: $margin-xl-3;
     overflow-x: hidden;
+    margin-left: calc(300px + ($margin-xl-3 * 2));
 
     .header {
         margin-bottom: $margin-xl-3;
@@ -43,6 +44,7 @@
             justify-content: center;
             align-items: center;
             position: relative;
+            cursor: pointer;
 
             .icon {
                 width: 30px;

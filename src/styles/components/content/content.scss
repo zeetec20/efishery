@@ -2,6 +2,7 @@
 @import '../../radius.scss';
 @import '../../color.scss';
 @import '../../fontSize.scss';
+@import '../../screen.scss';
 
 .content {
     margin-inline: $margin-xl-3;
@@ -31,7 +32,7 @@
             color: $color-black;
             font-size: $font-size-xl-2;
             line-height: $line-height-xl-2;
-            font-weight: 600;
+            font-weight: 700;
             letter-spacing: .1rem;
         }
 
@@ -72,4 +73,22 @@
             }
         }
     }
-}
+
+    @media screen and (max-width: $screen-lg) {
+        & {
+            margin-left: calc(clamp(150px, 27vw, 300px) + ($margin-xl-3 * 2));
+        }
+    }
+
+    @media screen and (max-width: $screen-sm) {
+        & {
+            margin-left: $margin-xl-3;
+        }
+
+        .header .text-name {
+            letter-spacing: unset;
+            font-size: $font-size-lg-2;
+            line-height: $font-size-lg-2;
+        }
+    }
+}    

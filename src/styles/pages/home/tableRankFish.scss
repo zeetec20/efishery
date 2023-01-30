@@ -3,6 +3,7 @@
 @import '../../color.scss';
 @import '../../fontSize.scss';
 @import '../../shadow.scss';
+@import '../../screen.scss';
 
 .wrap-table-rank-fish {
     background-color: white;
@@ -49,6 +50,7 @@
                 font-size: $font-size-sm;
                 line-height: $line-height-sm;
                 color: $color-black;
+                width: 100%;
             
                 &::placeholder {
                     color: $color-dark-gray;
@@ -143,6 +145,26 @@
                 &:last-child td {
                     border-bottom: none;
                 }
+            }
+        }
+    }
+
+    @media screen and (max-width: 900px) {
+        .header-table-rank-fish {
+            h1 {
+                font-size: $font-size-xl;
+                line-height: $font-size-xl;
+            }
+
+            p {
+                margin-top: $margin-sm;
+                font-size: $font-size-sm;
+                line-height: $font-size-sm;
+                margin-right: $margin-xs;
+            }
+
+            .search {
+                width: clamp(120px, 16vw, 150px);
             }
         }
     }

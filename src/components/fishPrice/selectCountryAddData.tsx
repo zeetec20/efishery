@@ -13,7 +13,7 @@ interface SelectCountryAddDataProps {
 const SelectCountryAddData = ({countries}: SelectCountryAddDataProps) => (
     <Select.Root name='country'>
         <Select.Trigger className="select-trigger" id='country'>
-            <Select.Value placeholder="Select a fruit…" />
+            <Select.Value placeholder="Pilih kota" />
             <Select.Icon>
                 <HiChevronDown className="select-icon" />
             </Select.Icon>

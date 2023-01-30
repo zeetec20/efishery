@@ -12,7 +12,7 @@ const SelectSizeAddData = ({ sizes }: SelectSizeAddDataProps) => {
     return (
         <Select.Root name='size'>
             <Select.Trigger className="select-trigger" id='size'>
-                <Select.Value placeholder="Select a fruit…" />
+                <Select.Value placeholder="Pilih ukuran" />
                 <Select.Icon>
                     <HiChevronDown className="select-icon" />
                 </Select.Icon>

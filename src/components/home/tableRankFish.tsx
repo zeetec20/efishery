@@ -1,12 +1,12 @@
 import { useReactTable, flexRender, getCoreRowModel, getSortedRowModel, SortingState, ColumnDef, FilterFn, getFilteredRowModel } from '@tanstack/react-table'
 import { useEffect, useMemo, useState } from 'react'
 import { RankFish } from 'src/services/fish'
-import { IoMdArrowDropdown, IoMdArrowDropup } from 'react-icons/io'
 import { RiSearch2Line } from 'react-icons/ri'
 import 'src/styles/pages/home/tableRankFish.scss'
-import { Overwrite } from 'src/helper'
+import { Overwrite, parseNumberFormatID } from 'src/helper'
 import { rankItem } from '@tanstack/match-sorter-utils'
 import RowTableRankFishSkeleton from './rowTableRankFishSkeleton'
+import SortColumnTable from '../sortColumnTable'
 
 interface RankFishProps {
     rankFish: RankFish[]
@@ -18,14 +18,6 @@ type RankFishTable = Overwrite<RankFish, {
     average_size: string
     average_price: string
 }>
-
-
-const SortTable = ({ down, up }: { down?: boolean, up?: boolean }) => (
-    <div className='column justify-content-center align-items-center'>
-        <IoMdArrowDropup className={`icon-sort ${up ? 'active' : ''}`} />
-        <IoMdArrowDropdown className={`icon-sort  ${down ? 'active' : ''}`} />
-    </div>
-)
 
 const TableRankFish = ({ rankFish }: RankFishProps) => {
     const [data, setData] = useState<RankFishTable[]>([])
@@ -81,9 +73,9 @@ const TableRankFish = ({ rankFish }: RankFishProps) => {
         setData(rankFish.map((data, index) => ({
             ...data,
             index: index + 1,
-            last_price: `Rp ${Intl.NumberFormat('id-ID').format(data.last_price)}`,
+            last_price: `Rp ${parseNumberFormatID(data.last_price)}`,
             average_size: `${data.average_size.toFixed(data.average_size % 1 === 0 ? 0 : 1)} cm`,
-            average_price: `Rp ${Intl.NumberFormat('id-ID').format(parseFloat(data.average_price.toFixed(0)))}`
+            average_price: `Rp ${parseNumberFormatID(parseFloat(data.average_price.toFixed(0)))}`
         })))
     }, [rankFish])
 
@@ -103,7 +95,6 @@ const TableRankFish = ({ rankFish }: RankFishProps) => {
         getFilteredRowModel: getFilteredRowModel(),
         onGlobalFilterChange: setGlobalFilter,
         globalFilterFn: fuzzyFilter,
-
     })
 
     return (
@@ -133,9 +124,9 @@ const TableRankFish = ({ rankFish }: RankFishProps) => {
                                                     header.getContext()
                                                 )}
                                             {{
-                                                asc: <SortTable down={true} />,
-                                                desc: <SortTable up={true} />,
-                                            }[header.column.getIsSorted() as string] ?? <SortTable />}
+                                                asc: <SortColumnTable down={true} />,
+                                                desc: <SortColumnTable up={true} />,
+                                            }[header.column.getIsSorted() as string] ?? <SortColumnTable />}
                                         </div>
                                     </th>
                                 ))}

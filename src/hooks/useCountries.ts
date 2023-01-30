@@ -9,9 +9,12 @@ interface CountryType {
 const useCountries = () => {
     const {data, ...res} = useSWR<any[]>('https://stein.efishery.com/v1/storages/5e1edf521073e315924ceab4/option_area', fetcher)
     const newData: CountryType[] | undefined = data?.filter(data => {
-        if (data.province && data.city) return false
-          return true
-    }).reduce((prevData: CountryType[], data: CountryType) => prevData.find(({province, city}) => province === data.province && city === data.city) ? prevData : [...prevData, data], [])
+        if (!(data.province && data.city)) return false
+        return true
+    })
+    .reduce((prevData: CountryType[], data: CountryType) => prevData.find(({province, city}) => province === data.province && city === data.city) ? prevData : [...prevData, data], [])
+    console.log(newData)
+
     return {data: newData, ...res}
 }
 

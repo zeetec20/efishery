@@ -16,9 +16,8 @@ const Sidebar = () => {
                 <Title>Menu</Title>
                 <div>
                     <Button route='/' icon={<MdSpaceDashboard className='icon' />} text='Dashboard' />
-                    <Button route='/fish-prices' icon={<MdTableChart className='icon' />} text='Harga Ikan' />
+                    <Button route='/harga-ikan' icon={<MdTableChart className='icon' />} text='Harga Ikan' />
                 </div>
-
             </div>
             <div>
                 <Hr />

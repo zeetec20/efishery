@@ -1,0 +1,123 @@
+@import '../../shadow.scss';
+@import '../../color.scss';
+@import '../../spacing.scss';
+@import '../../radius.scss';
+
+.toast-viewport {
+    --viewport-padding: 25px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    padding: $margin-xl;
+    gap: 10px;
+    width: 390px;
+    max-width: 100vw;
+    margin: 0;
+    list-style: none;
+    z-index: 2147483647;
+    outline: none;
+}
+
+.toast-success-add-fish {
+    background-color: white;
+    border-radius: $round-xl;
+    box-shadow: $shadow-xl;
+    padding: 15px;
+    display: grid;
+    grid-template-areas: 'title action''description action';
+    grid-template-columns: auto max-content;
+    column-gap: 15px;
+    align-items: center;
+
+    &[data-state='open'] {
+        animation: slideIn 150ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    
+    &[data-state='closed'] {
+        animation: hide 100ms ease-in;
+    }
+    
+    &[data-swipe='move'] {
+        transform: translateX(0);
+    }
+    
+    &[data-swipe='cancel'] {
+        transform: translateX(0);
+        transition: transform 200ms ease-out;
+    }
+    
+    &[data-swipe='end'] {
+        animation: swipeOut 100ms ease-out;
+    }
+    
+    @keyframes hide {
+        from {
+            opacity: 1;
+        }
+    
+        to {
+            opacity: 0;
+        }
+    }
+    
+    @keyframes slideIn {
+        from {
+            transform: translateX(calc(100% + $margin-xl));
+        }
+    
+        to {
+            transform: translateX(0);
+        }
+    }
+    
+    @keyframes swipeOut {
+        from {
+            transform: translateX(0);
+        }
+    
+        to {
+            transform: translateX(calc(100% + $margin-xl));
+        }
+    }
+    
+    .toast-title {
+        grid-area: title;
+        margin-bottom: $margin-md;
+        font-weight: 500;
+        color: $color-light-black;
+        font-size: 15px;
+        display: flex;
+        align-items: center;
+
+        .wrap-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: $color-green;
+            border-radius: 100%;
+            width: 23px;
+            height: 23px;
+            margin-right: $margin-sm;
+    
+            .icon {
+                width: 20px;
+                height: 20px;
+                color: white;
+            }
+        }
+    }
+    
+    .toast-description {
+        grid-area: description;
+        margin: 0;
+        color: $color-dark-gray;
+        font-size: 13px;
+        line-height: 1.3;
+    }
+    
+    .toast-action {
+        grid-area: action;
+    }
+}

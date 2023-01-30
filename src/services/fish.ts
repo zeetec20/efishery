@@ -30,7 +30,7 @@ const getGroupFishOfCity = (fishs: FishType[] | undefined) => fishs?.map(data =>
         mainData.price.push(data.price)
         mainData.size.push(data.size)
         mainData.tgl_parsed.push(data.tgl_parsed)
-        mainData.timestamp.push(moment(data.timestamp).format('MMMM DD YYYY hh:mm'))
+        mainData.timestamp.push(moment(data.timestamp).format('MMMM DD YYYY HH:mm'))
 
         return prevData.map(prevData => {
             if (prevData.uuid === mainData.uuid) return mainData
@@ -46,7 +46,7 @@ const getGroupFishOfCity = (fishs: FishType[] | undefined) => fishs?.map(data =>
             price: [data.price], 
             size: [data.size], 
             tgl_parsed: [data.tgl_parsed], 
-            timestamp: [moment(data.timestamp).format('MMMM DD YYYY hh:mm')]
+            timestamp: [moment(data.timestamp).format('MMMM DD YYYY HH:mm')]
         }
     ]
 }, [])
@@ -70,7 +70,7 @@ const getRankFish = (fishs: FishType[] | undefined) => {
             last_price: groubFish[fish][0].price,
             average_size: averageSize,
             average_price: averagePrice,
-            last_update: moment(groubFish[fish][0].timestamp).format('MMMM DD YYYY hh:mm')
+            last_update: moment(groubFish[fish][0].timestamp).format('MMMM DD YYYY HH:mm')
         }
     })
     .sort((a, b) => b.last_price - a.last_price)

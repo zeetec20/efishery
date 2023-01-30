@@ -4,28 +4,59 @@
 @import '../../fontSize.scss';
 @import '../../shadow.scss';
 
-.wrap-table-rank-fish {
+.wrap-table-fish-price {
     background-color: white;
     border-radius: $round-xl-2;
     margin-bottom: $margin-xl-3;
     box-shadow: $shadow-lg;
 
-    .header-table-rank-fish {
+    .header-table-fish-price {
         margin-inline: $margin-xl;
         margin-top: $margin-xl-2;
         justify-content: space-between;
-        align-items: center;
+        align-items: flex-end;
 
-        h1 {
-            font-size: $font-size-lg-2;
-            line-height: $line-height-lg-2;
-            color: $color-black;
-            font-weight: 700;
+        .counting {
+            align-items: center;
+
+            h1 {
+                font-size: $font-size-lg-2;
+                line-height: $line-height-lg-2;
+                margin-right: $margin-md;
+            }
+
+            div {
+                font-size: $font-size-md;
+                line-height: $font-size-md;
+                background-color: $color-light-blue;
+                color: white;
+                padding-inline: $margin-sm;
+                padding-top: $margin-sm;
+                padding-bottom: $margin-sm;
+                border-radius: $round-xl;
+            }
         }
-        p {
-            font-size: $font-size-md;
-            line-height: $line-height-md;
+
+        .btn-add-data-fish {
+            width: min-content;
+            white-space: nowrap;
+            font-size: $font-size-sm;
+            line-height: $line-height-sm;
+            font-weight: 500;
+            padding-inline: $margin-lg;
+            padding-top: $margin-sm;
+            padding-bottom: $margin-sm;
             color: $color-light-black;
+            border-radius: $round-lg;
+            color: white;
+            background-color: $color-blue;
+            margin-top: $margin-xl-3;
+        
+            .icon {
+                width: 20px;
+                height: 20px;
+                margin-left: $margin-md;
+            }
         }
 
         .search {
@@ -57,17 +88,17 @@
         }
     }
 
-    .wrap-table-rank-fish-overflow{
+    .wrap-table-fish-price-overflow{
         overflow: auto;
         margin-inline: $margin-xl;
-        margin-top: $margin-xl;
+        margin-top: $margin-xl-2;
         margin-bottom: $margin-xl-2;
         border-radius: $round-xl;
         border: solid 1px $color-gray;
         min-height: 400px;
     }
 
-    .table-rank-fish {
+    .table-fish-price {
         width: 100%;
         border-spacing: 0;
         border-collapse: separate;
@@ -144,6 +175,74 @@
                     border-bottom: none;
                 }
             }
+        }
+    }
+
+    .pagination {
+        width: 100%;
+        // margin-top: $margin-md;
+        margin-bottom: $margin-xl-2;
+        margin-inline: $margin-xl;
+        
+        .page {
+            background-color: white;
+            border: solid 1px $color-blue;
+            width: 37px;
+            height: 37px;
+            font-size: $font-size-sm;
+            line-height: $line-height-sm;
+            font-weight: 600;
+            border-radius: $round-lg;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            color: $color-black;
+            transition: all .2s ease-in-out;
+            
+            &:hover, &.active {
+                color: white;
+                background-color: $color-blue;
+            }
+
+            &:not(:last-child) {
+                margin-right: $margin-md;
+            }
+        }
+
+        .previous, .next {
+            background-color: white;
+            border: solid 1px $color-blue;
+            width: 37px;
+            height: 37px;
+            font-size: $font-size-sm;
+            line-height: $line-height-sm;
+            font-weight: 600;
+            border-radius: $round-lg;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            color: $color-black;
+            transition: all .2s ease-in-out;
+
+            .icon {
+                width: 20px;
+                height: 20px;
+            }
+
+            &:hover, .active {
+                color: white;
+                background-color: $color-blue;
+            }
+        }
+
+        .previous {
+            margin-right: $margin-md;
+        }
+
+        .next {
+            margin-left: $margin-md;
         }
     }
 }

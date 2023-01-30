@@ -1,0 +1,12 @@
+@import '../../color.scss';
+
+.wrap-sort-column-table {
+    .icon-sort {
+        width: 15px;
+        height: 15px;
+    
+        &.active {
+            color: $color-light-blue;
+        }
+    }
+}

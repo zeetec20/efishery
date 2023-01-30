@@ -168,4 +168,10 @@
             }
         }
     }
+
+    @media screen and (max-width: $screen-sm) {
+        .wrap-table-rank-fish-overflow {
+            margin-bottom: calc($margin-xl-5 + $margin-lg);
+        }
+    }
 }

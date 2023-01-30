@@ -4,6 +4,7 @@ specifiers:
   '@radix-ui/colors': ^0.1.8
   '@radix-ui/react-dialog': ^1.0.2
   '@radix-ui/react-select': ^1.2.0
+  '@radix-ui/react-toast': ^1.1.2
   '@tanstack/match-sorter-utils': ^8.7.6
   '@tanstack/react-table': ^8.7.8
   '@testing-library/jest-dom': ^5.16.5
@@ -13,6 +14,7 @@ specifiers:
   '@types/node': ^16.18.11
   '@types/react': ^18.0.27
   '@types/react-dom': ^18.0.10
+  '@types/uuid': ^9.0.0
   localforage: ^1.10.0
   match-sorter: ^6.3.1
   moment: ^2.29.4
@@ -26,12 +28,14 @@ specifiers:
   sort-by: ^1.2.0
   swr: ^2.0.2
   typescript: ^4.9.4
+  uuid: ^9.0.0
   web-vitals: ^2.1.4
 
 dependencies:
   '@radix-ui/colors': 0.1.8
   '@radix-ui/react-dialog': 1.0.2_5ndqzdd6t4rivxsukjv3i3ak2q
   '@radix-ui/react-select': 1.2.0_5ndqzdd6t4rivxsukjv3i3ak2q
+  '@radix-ui/react-toast': 1.1.2_biqbaboplfbrettd7655fr4n2y
   '@tanstack/match-sorter-utils': 8.7.6
   '@tanstack/react-table': 8.7.8_biqbaboplfbrettd7655fr4n2y
   '@testing-library/jest-dom': 5.16.5
@@ -41,6 +45,7 @@ dependencies:
   '@types/node': 16.18.11
   '@types/react': 18.0.27
   '@types/react-dom': 18.0.10
+  '@types/uuid': 9.0.0
   localforage: 1.10.0
   match-sorter: 6.3.1
   moment: 2.29.4
@@ -54,6 +59,7 @@ dependencies:
   sort-by: 1.2.0
   swr: 2.0.2_react@18.2.0
   typescript: 4.9.4
+  uuid: 9.0.0
   web-vitals: 2.1.4
 
 packages:
@@ -2275,6 +2281,29 @@ packages:
       react: 18.2.0
     dev: false
 
+  /@radix-ui/react-toast/1.1.2_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-Kpr4BBYoP0O5A1UeDBmao87UnCMNdAKGNioQH5JzEm6OYTUVGhuDRbOwoZxPwOZ6vsjJHeIpdUrwbiHEB65CCw==}
+    peerDependencies:
+      react: ^16.8 || ^17.0 || ^18.0
+      react-dom: ^16.8 || ^17.0 || ^18.0
+    dependencies:
+      '@babel/runtime': 7.20.13
+      '@radix-ui/primitive': 1.0.0
+      '@radix-ui/react-collection': 1.0.1_biqbaboplfbrettd7655fr4n2y
+      '@radix-ui/react-compose-refs': 1.0.0_react@18.2.0
+      '@radix-ui/react-context': 1.0.0_react@18.2.0
+      '@radix-ui/react-dismissable-layer': 1.0.2_biqbaboplfbrettd7655fr4n2y
+      '@radix-ui/react-portal': 1.0.1_biqbaboplfbrettd7655fr4n2y
+      '@radix-ui/react-presence': 1.0.0_biqbaboplfbrettd7655fr4n2y
+      '@radix-ui/react-primitive': 1.0.1_biqbaboplfbrettd7655fr4n2y
+      '@radix-ui/react-use-callback-ref': 1.0.0_react@18.2.0
+      '@radix-ui/react-use-controllable-state': 1.0.0_react@18.2.0
+      '@radix-ui/react-use-layout-effect': 1.0.0_react@18.2.0
+      '@radix-ui/react-visually-hidden': 1.0.1_biqbaboplfbrettd7655fr4n2y
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
+
   /@radix-ui/react-use-callback-ref/1.0.0_react@18.2.0:
     resolution: {integrity: sha512-GZtyzoHz95Rhs6S63D2t/eqvdFCm7I+yHMLVQheKM7nBD8mbZIt+ct1jz4536MDnaOGKIxynJ8eHTkVGVVkoTg==}
     peerDependencies:
@@ -2887,6 +2916,10 @@ packages:
 
   /@types/trusted-types/2.0.2:
     resolution: {integrity: sha512-F5DIZ36YVLE+PN+Zwws4kJogq47hNgX3Nx6WyDJ3kcplxyke3XIzB8uK5n/Lpm1HBsbGzd6nmGehL8cPekP+Tg==}
+    dev: false
+
+  /@types/uuid/9.0.0:
+    resolution: {integrity: sha512-kr90f+ERiQtKWMz5rP32ltJ/BtULDI5RVO0uavn1HQUOwjx0R1h0rnDYNL0CepF1zL5bSY6FISAfd9tOdDhU5Q==}
     dev: false
 
   /@types/ws/8.5.4:
@@ -10158,6 +10191,11 @@ packages:
 
   /uuid/8.3.2:
     resolution: {integrity: sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==}
+    hasBin: true
+    dev: false
+
+  /uuid/9.0.0:
+    resolution: {integrity: sha512-MXcSTerfPa4uqyzStbRoTgt5XIe3x5+42+q1sDuy3R5MDk66URdLMOZe5aPX/SQd+kuYAh0FdP/pO28IkQyTeg==}
     hasBin: true
     dev: false
 

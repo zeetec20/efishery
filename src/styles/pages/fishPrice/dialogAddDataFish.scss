@@ -100,7 +100,6 @@
             }
     
             input {
-                border: none;
                 outline: none;
                 margin-top: $margin-xs;
                 padding-inline: $margin-sm;
@@ -112,6 +111,10 @@
                 font-size: $font-size-sm;
                 line-height: $font-size-sm; 
                 color: $color-light-black;
+
+                &::placeholder {
+                    color: $color-dark-gray;
+                }
             }
         }
 
@@ -125,7 +128,7 @@
         }
 
         .actions {
-            margin-top: $margin-xl-5;
+            margin-top: $margin-xl-4;
             column-gap: $margin-lg;
 
             .btn-cancel, .btn-submit {

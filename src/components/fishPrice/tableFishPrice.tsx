@@ -3,7 +3,7 @@ import { ColumnDef, FilterFn, SortingState, Table, flexRender, getCoreRowModel, 
 import moment from "moment"
 import { useEffect, useMemo, useState } from "react"
 import { RiSearch2Line } from "react-icons/ri"
-import { Overwrite, parseNumberFormatID } from "src/helper"
+import { Overwrite, parseNumberFormatID, uppercaseFirstWord } from "src/helper"
 import { FishType } from "src/hooks/useFishs"
 import SortColumnTable from "../sortColumnTable"
 import RowTableFishPriceSkeleton from "./rowTableFishPriceSkeleton"
@@ -12,6 +12,7 @@ import Button from "../button"
 import { MdAdd } from 'react-icons/md'
 import { HiChevronRight, HiChevronLeft } from 'react-icons/hi'
 import DialogAddDataFish from "./dialogAddDataFish"
+import ToastSuccessAddFish from "./toastSuccessAddFish"
 
 interface TableFishPriceProps {
     fishs: FishType[] | undefined
@@ -38,7 +39,7 @@ const TablePagination = ({ table }: TablePaginationProps) => {
             </button>
             <div className="row">
                 {Array.from(Array(pageSize ?? 1).keys()).slice(pageIndex, limitPagination).map(page => (
-                    <button className={`page ${pageIndex === page ? 'active' : ''}`}>
+                    <button className={`page ${pageIndex === page ? 'active' : ''}`} onClick={() => table.setPageIndex(page)}>
                         {page + 1}
                     </button>
                 ))}
@@ -53,6 +54,7 @@ const TablePagination = ({ table }: TablePaginationProps) => {
 const TableFishPrice = ({ fishs }: TableFishPriceProps) => {
     const [openDialog, setOpenDialog] = useState<boolean>(false)
     const [data, setData] = useState<FishTypeWithIndex[]>([])
+    const [openToastSuccess, setOpenToastSuccess] = useState(false)
     const [globalFilter, setGlobalFilter] = useState<string>('')
     const [sortRankFish, setSortRankFish] = useState<SortingState>([])
     const columns = useMemo<ColumnDef<FishTypeWithIndex>[]>(() => [
@@ -93,7 +95,7 @@ const TableFishPrice = ({ fishs }: TableFishPriceProps) => {
         {
             accessorKey: 'timestamp',
             header: 'Tanggal',
-            cell: info => moment(info.getValue<number>()).format('MMMM DD YYYY hh:mm')
+            cell: info => moment(info.getValue<number>()).format('MMMM DD YYYY HH:mm')
         },
     ], [])
     const fuzzyFilter: FilterFn<any> = (row, columnId, value, addMeta) => {
@@ -105,12 +107,22 @@ const TableFishPrice = ({ fishs }: TableFishPriceProps) => {
 
         return itemRank.passed
     }
+    const onSuccessAddingFish = () => {
+        setOpenDialog(false)
+        setOpenToastSuccess(false)
+        setTimeout(() => {
+            setOpenToastSuccess(true)
+        }, 100);
+    }
 
     useEffect(() => {
         setData(fishs?.map((data, index) => ({
             ...data,
             index: index + 1,
-            price: `Rp ${parseNumberFormatID(data.price)}`
+            price: `Rp ${parseNumberFormatID(data.price)}`,
+            area_kota: uppercaseFirstWord(data.area_kota.toLowerCase()),
+            area_provinsi: uppercaseFirstWord(data.area_provinsi.toLocaleLowerCase()),
+            komoditas: uppercaseFirstWord(data.komoditas.toLowerCase())
         })) ?? [])
     }, [fishs])
 
@@ -138,7 +150,7 @@ const TableFishPrice = ({ fishs }: TableFishPriceProps) => {
         onGlobalFilterChange: setGlobalFilter,
         globalFilterFn: fuzzyFilter,
     })
-
+    
     return (
         <>
             <div className='wrap-table-fish-price column'>
@@ -211,7 +223,8 @@ const TableFishPrice = ({ fishs }: TableFishPriceProps) => {
                 </div>
                 <TablePagination table={table} />
             </div>
-            <DialogAddDataFish open={openDialog} onOpenChange={setOpenDialog} />
+            <DialogAddDataFish open={openDialog} onOpenChange={setOpenDialog} onSuccess={onSuccessAddingFish} />
+            <ToastSuccessAddFish open={openToastSuccess} setOpen={setOpenToastSuccess}  />
         </>
     )
 }

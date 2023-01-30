@@ -3,6 +3,7 @@
 @import '../../color.scss';
 @import '../../fontSize.scss';
 @import '../../shadow.scss';
+@import '../../screen.scss';
 
 .wrap-table-fish-price {
     background-color: white;
@@ -13,8 +14,6 @@
     .header-table-fish-price {
         margin-inline: $margin-xl;
         margin-top: $margin-xl-2;
-        justify-content: space-between;
-        align-items: flex-end;
 
         .counting {
             align-items: center;
@@ -30,13 +29,22 @@
                 line-height: $font-size-md;
                 background-color: $color-light-blue;
                 color: white;
-                padding-inline: $margin-sm;
-                padding-top: $margin-sm;
-                padding-bottom: $margin-sm;
-                border-radius: $round-xl;
+                border-radius: 100%;
+                width: 35px;
+                height: 35px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-weight: 700;
             }
         }
 
+        .row:has(> .btn-add-data-fish) {
+            width: 100%;
+            margin-top: $margin-xl-3;
+            justify-content: space-between;
+        }
+        
         .btn-add-data-fish {
             width: min-content;
             white-space: nowrap;
@@ -44,13 +52,13 @@
             line-height: $line-height-sm;
             font-weight: 500;
             padding-inline: $margin-lg;
-            padding-top: $margin-sm;
-            padding-bottom: $margin-sm;
+            padding-top: 11px;
+            padding-bottom: 11px;
             color: $color-light-black;
             border-radius: $round-lg;
             color: white;
             background-color: $color-blue;
-            margin-top: $margin-xl-3;
+            margin-right: $margin-md;
         
             .icon {
                 width: 20px;
@@ -80,6 +88,7 @@
                 font-size: $font-size-sm;
                 line-height: $line-height-sm;
                 color: $color-black;
+                width: 100%;
             
                 &::placeholder {
                     color: $color-dark-gray;
@@ -179,8 +188,7 @@
     }
 
     .pagination {
-        width: 100%;
-        // margin-top: $margin-md;
+        width: calc(100% - $margin-xl * 2);
         margin-bottom: $margin-xl-2;
         margin-inline: $margin-xl;
         
@@ -243,6 +251,43 @@
 
         .next {
             margin-left: $margin-md;
+        }
+    }
+
+    @media screen and (max-width: $screen-lg) {
+        .header-table-fish-price .btn-add-data-fish {
+            .icon {
+                margin-left: $margin-xs;
+            }
+
+            .extended-text {
+                display: none;
+            }
+        }
+    }
+
+    @media screen and (max-width: $screen-md) {
+        .header-table-fish-price .search {
+            width: clamp(120px, 16vw, 150px);
+        }
+    }
+
+    @media screen and (max-width: $screen-sm) {
+        .pagination {
+            margin-bottom: calc($margin-xl-5 + $margin-lg);
+            justify-content: center;
+        
+            .page, .previous, .next {
+                width: clamp(25px, 5vw, 35px);
+                height: clamp(25px, 5vw, 35px);
+                font-size: $font-size-xs;
+                line-height: $line-height-xs;
+
+                .icon {
+                    width: clamp(20px, 3.5vw, 30px);
+                    height: clamp(20px, 3.5vw, 30px);
+                }
+            }
         }
     }
 }

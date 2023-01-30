@@ -150,28 +150,28 @@ const TableFishPrice = ({ fishs }: TableFishPriceProps) => {
         onGlobalFilterChange: setGlobalFilter,
         globalFilterFn: fuzzyFilter,
     })
-    
+
     return (
         <>
             <div className='wrap-table-fish-price column'>
-                <div className="header-table-fish-price row">
-                    <div className="column">
-                        <div className="row counting">
-                            <h1>
-                                Data Ikan
-                            </h1>
-                            <div>
-                                {fishs?.length ?? 0}
-                            </div>
+                <div className="header-table-fish-price column">
+                    <div className="row counting">
+                        <h1>
+                            Data Ikan
+                        </h1>
+                        <div>
+                            {fishs?.length ?? 0}
                         </div>
+                    </div>
+                    <div className="row">
                         <Button className="btn-add-data-fish" onClick={() => setOpenDialog(true)}>
-                            Tambah Harga Baru
+                            Tambah <span className="extended-text">&nbsp;Harga Ikan</span>
                             <MdAdd className="icon" />
                         </Button>
-                    </div>
-                    <div className="search row">
-                        <RiSearch2Line className='icon' />
-                        <input type="text" placeholder='Cari ikan...' value={globalFilter} onChange={e => setGlobalFilter(e.target.value)} />
+                        <div className="search row">
+                            <RiSearch2Line className='icon' />
+                            <input type="text" placeholder='Cari ikan...' value={globalFilter} onChange={e => setGlobalFilter(e.target.value)} />
+                        </div>
                     </div>
                 </div>
                 <div className="wrap-table-fish-price-overflow">
@@ -224,7 +224,7 @@ const TableFishPrice = ({ fishs }: TableFishPriceProps) => {
                 <TablePagination table={table} />
             </div>
             <DialogAddDataFish open={openDialog} onOpenChange={setOpenDialog} onSuccess={onSuccessAddingFish} />
-            <ToastSuccessAddFish open={openToastSuccess} setOpen={setOpenToastSuccess}  />
+            <ToastSuccessAddFish open={openToastSuccess} setOpen={setOpenToastSuccess} />
         </>
     )
 }

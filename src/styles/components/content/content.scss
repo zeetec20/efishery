@@ -2,6 +2,7 @@
 @import '../../radius.scss';
 @import '../../color.scss';
 @import '../../fontSize.scss';
+@import '../../screen.scss';
 
 .content {
     margin-inline: $margin-xl-3;
@@ -72,4 +73,16 @@
             }
         }
     }
-}
+
+    @media screen and (max-width: $screen-lg) {
+        & {
+            margin-left: calc(clamp(150px, 27vw, 300px) + ($margin-xl-3 * 2));
+        }
+    }
+
+    @media screen and (max-width: $screen-sm) {
+        & {
+            margin-left: $margin-xl-3;
+        }
+    }
+}    

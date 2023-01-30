@@ -1,0 +1,58 @@
+@import '../../screen.scss';
+@import '../../spacing.scss';
+@import '../../radius.scss';
+@import '../../shadow.scss';
+@import '../../fontSize.scss';
+@import '../../color.scss';
+
+.mobile-nav {
+    display: none;
+    width: calc(100% - ($margin-xl * 2));
+    border-radius: $round-xl;
+    position: fixed;
+    z-index: 2;
+    bottom: 0;
+    // background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
+    background-blend-mode: screen;
+    margin-inline: $margin-xl;
+    margin-bottom: $margin-lg;
+    box-shadow: $shadow-xl-2;
+    justify-content: space-evenly;
+    padding-top: $margin-md;
+    padding-bottom: $margin-md;
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    
+    .nav {
+        align-items: center;
+
+        .icon {
+            width: 21px;
+            height: 21px;
+            color: $color-gray;
+            cursor: pointer;
+
+            &.active {
+                color: $color-orange;
+            }
+        }
+
+        h1 {
+            cursor: pointer;
+            font-size: $font-size-sm;
+            line-height: $line-height-sm;
+            font-weight: 400;
+            margin-top: $margin-xs;
+            color: $color-dark-gray;
+
+            &.active {
+                color: $color-orange;
+                font-weight: 500;
+            }
+        }
+    }
+
+    @media screen and (max-width: $screen-sm) {
+        display: flex;
+    }
+}

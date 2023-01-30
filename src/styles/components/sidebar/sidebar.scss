@@ -3,6 +3,7 @@
 @import '../../shadow.scss';
 @import '../../color.scss';
 @import '../../fontSize.scss';
+@import '../../screen.scss';
 
 .sidebar {
     margin-top: $margin-xl-3;
@@ -63,6 +64,58 @@
             margin-top: 4px;
             margin-left: $margin-sm;
             cursor: pointer;
+        }
+    }
+
+    @media screen and (max-width: $screen-lg) {
+        & {
+            width: clamp(150px, 27vw, 300px);
+            min-width: 150px;
+        }
+    }
+    
+    @media screen and (max-width: $screen-md) {
+        .logo {
+            width: clamp(100px, 17vw, 150px);
+        }
+
+        .account {
+            .avatar {
+                width: 30px;
+                height: 30px;
+            }
+        
+            & > .row {
+                align-items: center;
+                column-gap: $margin-sm;
+            }
+    
+            h6 {
+                font-weight: 700;
+                font-size: $font-size-xs-2;
+                line-height: $line-height-xs-2;
+            }
+    
+            h5 {
+                font-size: $font-size-xs;
+                line-height: $line-height-xs;
+                font-weight: 600;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            }
+    
+            .icon-dropdown {
+                margin-top: 2px;
+                cursor: pointer;
+                width: 12px;
+                height: 12px;
+            }
+        }
+    }
+
+    @media screen and (max-width: $screen-sm) {
+        & {
+            display: none;
         }
     }
 }

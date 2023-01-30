@@ -3,6 +3,7 @@ import React from 'react';
 import Routes from 'src/routes';
 import Layout from './layout';
 import { BrowserRouter } from 'react-router-dom';
+import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 
 const root = ReactDOM.createRoot(
 	document.getElementById('root') as HTMLElement
@@ -17,3 +18,5 @@ root.render(
 		</BrowserRouter>
 	</React.StrictMode>
 )
+
+serviceWorkerRegistration.register()

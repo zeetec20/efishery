@@ -10,7 +10,7 @@
     width: calc(100% - ($margin-xl * 2));
     border-radius: $round-xl;
     position: fixed;
-    z-index: 2;
+    z-index: 1;
     bottom: 0;
     // background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
     background-blend-mode: screen;

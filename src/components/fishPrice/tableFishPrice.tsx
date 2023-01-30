@@ -38,8 +38,8 @@ const TablePagination = ({ table }: TablePaginationProps) => {
                 <HiChevronLeft className="icon" />
             </button>
             <div className="row">
-                {Array.from(Array(pageSize ?? 1).keys()).slice(pageIndex, limitPagination).map(page => (
-                    <button className={`page ${pageIndex === page ? 'active' : ''}`} onClick={() => table.setPageIndex(page)}>
+                {Array.from(Array(pageSize ?? 1).keys()).slice(pageIndex, limitPagination).map((page, index) => (
+                    <button key={index} className={`page ${pageIndex === page ? 'active' : ''}`} onClick={() => table.setPageIndex(page)}>
                         {page + 1}
                     </button>
                 ))}

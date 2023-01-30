@@ -20,7 +20,8 @@ interface TableFishPriceProps {
 
 type FishTypeWithIndex = Overwrite<FishType, {
     index: number,
-    price: string
+    price: string,
+    size: string
 }>
 
 interface TablePaginationProps {
@@ -122,7 +123,8 @@ const TableFishPrice = ({ fishs }: TableFishPriceProps) => {
             price: `Rp ${parseNumberFormatID(data.price)}`,
             area_kota: uppercaseFirstWord(data.area_kota.toLowerCase()),
             area_provinsi: uppercaseFirstWord(data.area_provinsi.toLocaleLowerCase()),
-            komoditas: uppercaseFirstWord(data.komoditas.toLowerCase())
+            komoditas: uppercaseFirstWord(data.komoditas.toLowerCase()),
+            size: `${data.size} cm`
         })) ?? [])
     }, [fishs])
 
